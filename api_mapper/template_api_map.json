@@ -1,0 +1,41 @@
+{
+  "Land_MORTGAGE_AGREEMENT": {
+    "url": "https://core-banking.internal/api/v1/mortgage/details/{app_ref}",
+    "method": "GET",
+    "headers": {
+      "Authorization": "Bearer ${BANK_API_TOKEN}",
+      "Content-Type": "application/json"
+    },
+    "timeout": 10
+  },
+  "SampleContract": {
+    "url": "http://127.0.0.1:8000/api/sample-endpoint",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Bearer ${SAMPLE_API_TOKEN}",
+      "Content-Type": "application/json"
+    },
+    "body_template": {
+      "application_reference": "{app_ref}"
+    },
+    "timeout": 10
+  },
+  "STORED_PROC_CONTRACT": {
+    "url": "https://core-banking.internal/api/v1/execute-procedure",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Bearer ${BANK_API_TOKEN}",
+      "Content-Type": "application/json"
+    },
+    "body_template": {
+      "prcNo": 4001,
+      "paramsSCs": [
+        {
+          "paramName": "app_ref",
+          "paramValue": "{app_ref}"
+        }
+      ]
+    },
+    "timeout": 15
+  }
+}
